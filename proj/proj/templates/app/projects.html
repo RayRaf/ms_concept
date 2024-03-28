@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} Все проекты {% endblock %}
+
+{% block content %}
+
+    {% if projects_list %}
+
+        {% for p in projects_list %}
+
+            <a href="{% url 'app:project' p.id %}">{{p.project_code}}</a>
+
+        {% endfor %}
+
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} {{project.project_code}} {% endblock %}
+
+{% block content %}
+
+    {% if project %}
+
+        {% for s in specitems_list %}
+
+        {{s.docsection}} {{s.positionaltag}} {{s.product}} {{s.supplier}} <hr>
+
+
+
+        {% endfor %}
+
+    {% endif %}
+
+
+{% endblock %}
