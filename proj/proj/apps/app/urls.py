@@ -6,4 +6,5 @@ app_name = 'app'
 urlpatterns = [
     path('', views.projects, name='projects'),
     path('<int:project_id>/', views.project, name='project'),
+    path('sendmail/', views.sendmail, name='sendmail'),
 ]
