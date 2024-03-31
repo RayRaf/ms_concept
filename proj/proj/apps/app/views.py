@@ -54,8 +54,8 @@ def sendmail(request):
         message = "Test message from python"
         # setup the parameters of the message 
         password = "***"
-        msg['From'] = "kip@proektserv.com"
-        msg['To'] = "rayraf@mail.ru"
+        msg['From'] = "***"
+        msg['To'] = "***"
         msg['Subject'] = "Test"
         # add in the message body 
         msg.attach(MIMEText(message, 'plain'))
