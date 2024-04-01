@@ -1,0 +1,99 @@
+
+html, body {
+    width: 420mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    background-color: gray;
+    margin:auto;
+}
+.first_page {
+    background-color: white;
+    width: 420mm;
+    height: 297mm;
+    min-width: 200px;
+    margin:0;
+    position:relative;
+    page-break-after:always;
+    background-image: url("/static/images/icon.svg");
+}
+.next_page {
+    background-color: white;
+    width: 420mm;
+    height: 297mm;
+    min-width: 200px;
+    margin:0;
+    position:relative;
+    page-break-after:always;
+    background-image: url('/static/images/icon2.svg');
+}
+
+.speccontainer {
+    position: absolute;
+    left: 32mm;
+    top:52mm;
+}
+
+
+
+.specitem {
+    display:flex;
+    /* position: absolute;
+    left: 42mm;
+    top:39mm; */
+    font-family: 'FontName';
+    font-size: 6mm;
+    width: 335mm;
+    line-height: 1.33;
+    /* max-height:150mm; */
+    text-align: center;
+    padding: 0%;
+    margin: -3.6%;
+}
+
+
+.itemtag {
+    width: 20mm;
+}
+
+
+.itemtype {
+    width: 130mm;
+}
+
+.itemordercode {
+    width: 60mm;		
+}
+.productcode {
+    width: 35mm;
+}
+.manufacturer {
+    width: 45mm;
+    }
+.amount_unit {
+    width: 20mm;
+    }
+.amount {
+    width: 20mm;
+    }
+
+.raw_lines {
+    display: none;
+}
+
+
+
+
+@font-face {
+    font-family: 'FontName'; 
+    src: url('/static/fonts/ISOCPEUI.TTF'); 
+}
+H4 {
+    text-align: center;
+    line-height: 1.33;			
+}
+
+.seccaption {
+    text-decoration:underline;
+    font-weight: bold;
+}

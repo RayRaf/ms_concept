@@ -22,6 +22,7 @@ class Product(models.Model):
     product_order_code = models.CharField('Артикул изделия', max_length = 200)
     product_price = models.FloatField('Цена изделия')
     product_price_currency = models.CharField('Валюта цены', max_length = 3)
+    product_manufacturer = models.CharField('Завод-изготовитель', max_length = 50, null = True)
     supplier = models.ForeignKey('Supplier', on_delete = models.SET_NULL, null = True)
 
 
@@ -48,7 +49,7 @@ class Supplier(models.Model):
 class PositionalTag(models.Model):
     tag = models.CharField('Позицоинное обозначение', max_length = 50)
     project = models.ForeignKey(Project, on_delete = models.SET_NULL, null = True)
-    product = models.OneToOneField(Product, on_delete = models.SET_NULL, null = True)
+    product = models.ForeignKey(Product, on_delete = models.SET_NULL, null = True)
     docsection = models.ForeignKey('DocSection', on_delete = models.SET_NULL, null = True)
     def __str__(self) -> str:
         return self.tag

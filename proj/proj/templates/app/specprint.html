@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>test</title>
+    <meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href= "{% static "css/style.css" %}"  >
+    
+</head>
+<body>
+	<div class="raw_lines">
+		<div class="specitem" id="line1">
+			
+			<div class="itemtag">				    
+				<p> </p>
+			</div>
+
+			<div class="itemtype">				    
+			<p class="seccaption">Приборы КИПиА</p>
+			</div>
+
+			<div class="itemordercode">
+				<p> </p>
+			</div>
+
+			<div class="productcode">
+				<p> </p>
+			</div>
+
+			<div class="manufacturer">
+				<p> </p>
+			</div>
+
+			<div class="amount_unit">
+				<p></p>
+			</div>
+
+			<div class="amount">
+				<p> </p>
+			</div>
+		</div>
+
+		{% for s in specitems_list %}
+
+		<div class="specitem" id="{{s.num}}">
+		
+			<div class="itemtag">				    
+				<p>{{s.positionaltag}}</p>
+			</div>
+
+			<div class="itemtype">				    
+			<p>{{s.product}} </p>
+			</div>
+
+			<div class="itemordercode">
+				<p>{{s.product_order_code}} </p>
+			</div>
+
+			<div class="productcode">
+				<p> </p>
+			</div>
+
+			<div class="manufacturer">
+				<p>{{s.product_manufacturer}} </p>
+			</div>
+
+			<div class="amount_unit">
+				<p>Шт.</p>
+			</div>
+
+			<div class="amount">
+				<p>1 </p>
+			</div>
+		</div>
+
+		{% endfor %}
+
+
+		<div class="first_page" id="fp0">		
+			<div class="speccontainer" id="container01">
+			</div>
+		</div>
+
+
+		<div class="next_page" id="np0">
+			<div class="speccontainer" id="container02">			
+			</div>	
+		</div>
+	</div>
+
+
+
+	
+
+
+	
+	<script src="{% static "scripts/scr.js" %}"></script>
+</body>
+</html>
+
+
+

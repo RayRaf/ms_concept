@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} {{project.project_code}} {% endblock %}
+
+{% block content %}
+
+    {% if project %}
+
+    <h2>Состав раздела</h2>
+        {% for s in specitems_list %}
+
+        {{s.positionaltag}} {{s.product}} {{s.product_order_code}} {{s.product_manufacturer}} <hr>
+
+
+
+        {% endfor %}
+
+        <a href="{% url 'app:specprintdemo' %}">Демо страница печати</a> <br>
+        <a href="{% url 'app:specprint' project.id section %}">Cтраница печати</a> <br>
+
+    {% endif %}
+
+
+{% endblock %}
