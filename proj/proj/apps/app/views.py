@@ -21,7 +21,7 @@ class SpecItem():
     product = ''
     product_order_code = ''
     product_manufacturer = ''
-    product_amount = ''
+    product_amount = 1
     product_amount_unit = ''
     num = ''
 
@@ -82,10 +82,6 @@ def sendmail(request):
     except:
         raise Http404('Не удалось отправить сообщение')
     
-def specprintdemo(request):
-    return render(request, 'app/specprintdemo.html')
-
-
 
 
 def docsectionspec(request, project_id, section):
@@ -133,9 +129,47 @@ def specprint(request, project_id, section):
         sp.product_order_code = product.product_order_code
         sp.product_manufacturer = product.product_manufacturer
         sp.num = 'line'+str(num)
-
-
         specitems_list.append(sp) 
         num+=1
 
-    return render(request, 'app/specprint.html', {'project': project, 'specitems_list': specitems_list, 'section': section})
+
+
+
+
+
+
+
+    specitems_list_consolidated = []
+    for sl in specitems_list:
+        cnt = 0
+        for sc in specitems_list_consolidated:
+            if sc.product_order_code == sl.product_order_code:
+                cnt +=1
+        if cnt == 0:
+            specitems_list_consolidated.append(sl)
+     
+        
+
+
+
+    for s1 in specitems_list_consolidated:
+        cnt = 0
+        for s2 in specitems_list:
+            if s1.product_order_code == s2.product_order_code:
+                cnt += 1
+                if s1.positionaltag != s2.positionaltag:
+                    s1.positionaltag = s1.positionaltag + ', '+ s2.positionaltag
+        s1.product_amount = cnt
+
+
+
+
+
+
+    num = 2
+    for s in specitems_list_consolidated:
+        s.num = 'line'+str(num)
+        num+=1
+        print(s.product_amount)
+
+    return render(request, 'app/specprint.html', {'project': project, 'specitems_list_consolidated': specitems_list_consolidated, 'section': section})

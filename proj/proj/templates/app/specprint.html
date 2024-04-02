@@ -40,7 +40,7 @@
 			</div>
 		</div>
 
-		{% for s in specitems_list %}
+		{% for s in specitems_list_consolidated %}
 
 		<div class="specitem" id="{{s.num}}">
 		
@@ -69,7 +69,7 @@
 			</div>
 
 			<div class="amount">
-				<p>1 </p>
+				<p>{{s.product_amount}}</p>
 			</div>
 		</div>
 
