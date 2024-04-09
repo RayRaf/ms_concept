@@ -9,7 +9,7 @@
     <h2>Состав раздела</h2>
         {% for s in specitems_list %}
 
-        {{s.positionaltag}} {{s.product}} {{s.product_order_code}} {{s.product_manufacturer}} <hr>
+        {{s.positionaltag}} <a href=" {% url 'app:product_properties' s.id %} ">{{s.product}} {{s.product_order_code}}</a>  {{s.product_manufacturer}} <hr>
 
 
 

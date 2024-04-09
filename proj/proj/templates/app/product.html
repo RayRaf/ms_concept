@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} {{product.product_name}} {% endblock %}
+
+{% block content %}
+
+    {% if property_values_list %}
+
+        {% for pv in property_values_list  %}
+
+            <p>  {{pv.property_name.value}}: {{pv.value}}    </p>
+
+        {% endfor %}
+
+       
+
+    {% endif %}
+
+
+{% endblock %}

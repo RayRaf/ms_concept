@@ -1,6 +1,6 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
-from .models import DocSection, Project
+from .models import DocSection, Project, Product
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -15,6 +15,7 @@ def projects(request):
 
 
 class SpecItem():
+    id = 0
     positionaltag = ''
     docsection = ''
     supplier = ''
@@ -40,14 +41,15 @@ def project(request, project_id):
         sp.positionaltag = p.tag
         sp.docsection = docsecttion.code_name
         sp.supplier = supplier.supplier_name + ' '+ supplier.supplier_email
-        sp.product = product.product_name + ' '+ product.product_name
+        sp.product = product.product_name + ' '+ product.product_order_code
+        sp.id = product.id
+
 
         specitems_list.append(sp) 
 
 
 
-# positionaltag = project.positionaltag_set.all()[:1].get()
-#  doc_sections = project.docsection_set.all()
+
     return render(request, 'app/project.html', {'project': project, 'specitems_list': specitems_list})
 
 
@@ -102,6 +104,7 @@ def docsectionspec(request, project_id, section):
         sp.product = product.product_name 
         sp.product_order_code = product.product_order_code
         sp.product_manufacturer = product.product_manufacturer
+        sp.id = product.id
 
 
         specitems_list.append(sp) 
@@ -173,3 +176,12 @@ def specprint(request, project_id, section):
         print(s.product_amount)
 
     return render(request, 'app/specprint.html', {'project': project, 'specitems_list_consolidated': specitems_list_consolidated, 'section': section})
+
+
+
+def product_properties(request, product_id):
+    p = Product.objects.get(id = product_id)
+
+    property_values_list = p.property_value_set.order_by('id')
+
+    return render(request, 'app/product.html', {'product': p, 'property_values_list': property_values_list})

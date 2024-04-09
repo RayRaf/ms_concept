@@ -9,4 +9,5 @@ urlpatterns = [
     path('sendmail/', views.sendmail, name='sendmail'),
     path('<int:project_id>/<str:section>', views.docsectionspec, name='docsectionspec'),
     path('<int:project_id>/<str:section>/specprint', views.specprint, name='specprint'),
+    path('product/<int:product_id>', views.product_properties, name='product_properties'),
 ]

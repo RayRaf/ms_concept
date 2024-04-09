@@ -8,7 +8,7 @@
 
         {% for s in specitems_list %}
 
-        {{s.docsection}} {{s.positionaltag}} {{s.product}} {{s.supplier}} <hr>
+        {{s.docsection}} {{s.positionaltag}}   <a href=" {% url 'app:product_properties' s.id %} ">{{s.product}}</a>   {{s.supplier}} <hr>
 
 
 

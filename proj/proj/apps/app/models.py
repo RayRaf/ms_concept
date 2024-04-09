@@ -68,3 +68,28 @@ class DocSection(models.Model):
     class Meta:
         verbose_name = 'Раздел документации'        
         verbose_name_plural = 'Разделы документации'
+
+
+class Property_name(models.Model):
+    value = models.CharField('Название свойства', max_length=100)
+
+    def __str__(self) -> str:
+        return self.value
+    
+    class Meta:
+        verbose_name = 'Название свойства'
+        verbose_name_plural = 'Названия свойства'
+
+
+class Property_value(models.Model):
+    value = models.CharField('Значение свойства', max_length=200)
+    property_name = models.ForeignKey(Property_name, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+
+    def __str__(self) -> str:
+        return self.value
+    
+    class Meta:
+        verbose_name = 'Значение свойства'
+        verbose_name_plural = 'Значения свойств'
