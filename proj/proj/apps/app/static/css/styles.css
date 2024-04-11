@@ -1,0 +1,72 @@
+.bg-image {
+  /* Путь к вашему фоновому изображению */
+  background-image: url("/static/images/wall.jpg");
+
+  /* Центрирование изображения */
+  background-position: center;
+  /* Покрываем изображением весь элемент */
+  background-size: cover;
+  /* Высота равна высоте вьюпорта */
+  height: 100%;
+
+  /* Настраиваем прозрачность фонового изображения */
+  opacity: 0.5;
+
+  /* Добавляем позиционирование относительно родителя, чтобы содержимое не наследовало прозрачность */
+  position: relative;
+}
+  
+  .styled-list {
+    list-style-type: none; /* Убираем стандартные маркеры */
+    padding: 0;
+  }
+  
+  .styled-list li {
+    background-color: #ffffff; /* Фоновый цвет для элементов списка */
+    border: 1px solid #ddd; /* Граница вокруг каждого элемента */
+    margin-bottom: 5px; /* Отступ снизу */
+    padding: 10px; /* Внутренние отступы */
+    font-size: 16px; /* Размер шрифта */
+    transition: background-color 0.3s; /* Плавное изменение фона при наведении */
+  }
+  
+  .styled-list li:hover {
+    background-color: #f9f9f9; /* Фоновый цвет при наведении */
+  }
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; /* Удаляет стандартные отступы */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.navbar, .footer {
+    background-color: #6800ad;
+    color: white;
+    overflow: hidden;
+}
+.navbar a, .footer a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+.navbar a:hover, .footer a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.footer {
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.content {
+    flex: 1; /* Позволяет контенту заполнять всё доступное пространство */
+    padding: 20px;
+}

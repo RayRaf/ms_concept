@@ -5,14 +5,21 @@
 {% block content %}
 
     {% if project %}
-
-        {% for s in specitems_list %}
-
-        {{s.docsection}} {{s.positionaltag}}   <a href=" {% url 'app:product_properties' s.id %} ">{{s.product}}</a>   {{s.supplier}} <hr>
+        <ul class="styled-list">
+            {% for s in specitems_list %}
 
 
+            
+                <li>{{s.docsection}} {{s.positionaltag}}   <a href=" {% url 'app:product_properties' s.id %} ">{{s.product}}</a>   {{s.supplier}}</li>
+            
+            
 
-        {% endfor %}
+
+            
+
+
+            {% endfor %}
+        </ul>
 
     {% endif %}
 

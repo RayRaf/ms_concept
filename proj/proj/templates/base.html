@@ -1,15 +1,32 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} Портал {% endblock %}</title>
+    <title> {% block title %} Систеа управления {% endblock %} </title>
+    <link rel="stylesheet" type="text/css" href = "{% static "css/styles.css" %}">
 </head>
 <body>
+    <div class="navbar">
+        <a href="#home">Главная</a>
+        <a href=" {% url 'app:projects' %} ">Проекты</a>
+        <a href="#products">Комплектующие</a>
+        <a href="#company_production">Продукция</a>
+        <a href="#constructor">Конструктор</a>
+    </div>
+
     
-    {% block content %}
 
-    {% endblock %}
-
+    <div class="content">
+        {% block content %} 
+        
+        {% endblock %} 
+    </div>
+    <div class="footer">
+        <p>© 2023 Company Name. All rights reserved.</p>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms of Use</a>
+    </div>
 </body>
 </html>
